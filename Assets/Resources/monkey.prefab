@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 1248871080895634933}
   - component: {fileID: 3020294385690687133}
   - component: {fileID: 6517575056528858006}
+  - component: {fileID: -4911617467858420113}
   m_Layer: 0
   m_Name: monkey
   m_TagString: Untagged
@@ -244,7 +245,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2042324975713444943}
   playerControlScripts:
   - {fileID: 2042324975723123119}
-  - {fileID: 2042324975723123119}
+  - {fileID: -4911617467858420113}
   playerRigidbody: {fileID: 2042324975710177067}
   playerParts:
   - {fileID: 5880570904321522333}
@@ -355,6 +356,20 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &-4911617467858420113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042324975713444941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3183cb330b3a0954d8aeb8a108fa61ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileAsset: {fileID: 2937225972824669419, guid: 1191c74a0abb8c74d9093e84f46d966b,
+    type: 3}
 --- !u!1 &2042324975713444943
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,12 +54,12 @@ public class playerNetwork : MonoBehaviour
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting){
-            stream.SendNext(floatingName.text);
+         //   stream.SendNext(floatingName.text);
         }
         else if (stream.isReading)
         {
-            string name = (string)stream.ReceiveNext();
-            floatingName.text = name;
+          //  string name = (string)stream.ReceiveNext();
+         //   floatingName.text = name;
         }
     }
 

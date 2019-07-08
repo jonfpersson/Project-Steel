@@ -36,7 +36,7 @@ public class photonGameLogic : Photon.MonoBehaviour
     void Update()
     {
       //TEST
-      txt.text = PhotonNetwork.connectionStateDetailed.ToString();
+      //txt.text = PhotonNetwork.connectionStateDetailed.ToString();
         
     }
 
