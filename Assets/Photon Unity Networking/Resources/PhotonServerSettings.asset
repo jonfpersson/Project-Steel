@@ -19,7 +19,7 @@ MonoBehaviour:
   PreferredRegion: 0
   EnabledRegions: -1
   Protocol: 0
-  ServerAddress: 
+  ServerAddress: jonf.duckdns.org
   ServerPort: 5055
   VoiceServerPort: 5055
   JoinLobby: 1
@@ -43,4 +43,5 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
+  - ApplyDamage
   DisableAutoOpenWizard: 1

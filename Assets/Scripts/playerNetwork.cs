@@ -17,15 +17,24 @@ public class playerNetwork : MonoBehaviour
     //private delegate void UpdateUI(string playerName);  
     //private event UpdateUI updateUI;
 
-    string inputName = "Nisse";
+    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
-        floatingName.text = inputName;
+        floatingName.text = health.ToString();
         pw = GetComponent<PhotonView>();
        // updateUI += FindObjectOfType<playerUI>().UpdateUI;
 
         ini();
+    }
+
+    private void Update()
+    {
+        if (!pw.isMine)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.E))
+            health -= 5;
     }
 
     public void ini()
@@ -51,15 +60,21 @@ public class playerNetwork : MonoBehaviour
         //updateUI(inputName);
     }
 
+    [PunRPC]
+    void ApplyDamage(int damage)
+    {
+        health -= damage;
+    }
+
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting){
-         //   stream.SendNext(floatingName.text);
+            stream.SendNext(health);
         }
         else if (stream.isReading)
         {
-          //  string name = (string)stream.ReceiveNext();
-         //   floatingName.text = name;
+            int name = (int)stream.ReceiveNext();
+            floatingName.text = name.ToString();
         }
     }
 
