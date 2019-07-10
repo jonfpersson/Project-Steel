@@ -7,7 +7,7 @@ public class ballShooter : MonoBehaviour
     public GameObject projectileAsset;
 
     public Transform shootpoint;
-    public int damage = 20;
+    public int damage = 2;
     // Start is called before the first frame update
     void Start()
     {

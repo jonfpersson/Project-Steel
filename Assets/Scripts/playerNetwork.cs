@@ -13,7 +13,7 @@ public class playerNetwork : MonoBehaviour
     public TextMesh floatingName;
 
     private PhotonView pw;
-
+    public AudioClip ac;
     //private delegate void UpdateUI(string playerName);  
     //private event UpdateUI updateUI;
 
@@ -32,9 +32,6 @@ public class playerNetwork : MonoBehaviour
     {
         if (!pw.isMine)
             return;
-
-        if (Input.GetKeyDown(KeyCode.E))
-            health -= 5;
     }
 
     public void ini()
@@ -63,8 +60,23 @@ public class playerNetwork : MonoBehaviour
     [PunRPC]
     void ApplyDamage(int damage)
     {
-        health -= damage;
+
+        if (health >= 5)
+            health -= damage;
+
+        AudioSource gunFire = GetComponent<AudioSource>();
+        
+        float nextSoundTime = 0; 
+
+        if (Time.time >= nextSoundTime)
+        {
+            gunFire.PlayOneShot(ac);
+            // write down when we will be finished:
+            nextSoundTime = Time.time + ac.length;
+        }
+        
     }
+    
 
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
