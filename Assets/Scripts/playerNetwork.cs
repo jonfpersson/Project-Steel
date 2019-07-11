@@ -23,8 +23,8 @@ public class playerNetwork : MonoBehaviour
     {
         floatingName.text = health.ToString();
         pw = GetComponent<PhotonView>();
-       // updateUI += FindObjectOfType<playerUI>().UpdateUI;
-
+        // updateUI += FindObjectOfType<playerUI>().UpdateUI;
+        //lobbyCamera = GameObject.FindGameObjectsWithTag("lobbyCamera")[0];
         ini();
     }
 
@@ -63,6 +63,13 @@ public class playerNetwork : MonoBehaviour
 
         if (health >= 5)
             health -= damage;
+
+        if(health <= 0)
+        {
+            //PhotonNetwork.Destroy(gameObject);
+        //    Destroy(gameObject);
+           // photonGameLogic.playerHasDied = true;
+        }
 
         AudioSource gunFire = GetComponent<AudioSource>();
         

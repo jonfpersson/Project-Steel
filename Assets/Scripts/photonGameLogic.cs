@@ -10,12 +10,15 @@ public class photonGameLogic : Photon.MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject lobbyCamera;
+    bool hasSpawned;
 
+    public static bool playerHasDied;
     int numberPlayers;
 
     // Start is called before the first frame update
     private void Start()
     {
+        hasSpawned = false;
         PhotonNetwork.ConnectUsingSettings("version 1");
     }
 
@@ -35,31 +38,41 @@ public class photonGameLogic : Photon.MonoBehaviour
         {
             PhotonNetwork.Instantiate(player.name, spawnPoints[0].position, spawnPoints[0].rotation, 0);
             numberPlayers = 2;
+            hasSpawned = true;
         }
 
         else if (numberPlayers == 2)
         {
             PhotonNetwork.Instantiate(player.name, spawnPoints[1].position, spawnPoints[1].rotation, 0);
             numberPlayers = 3;
+            hasSpawned = true;
         }
         else if (numberPlayers == 3)
         {
             PhotonNetwork.Instantiate(player.name, spawnPoints[2].position, spawnPoints[2].rotation, 0);
             numberPlayers = 4;
+            hasSpawned = true;
         }
         else if (numberPlayers == 4)
         {
             PhotonNetwork.Instantiate(player.name, spawnPoints[3].position, spawnPoints[3].rotation, 0);
             numberPlayers = 1;
+            hasSpawned = true;
         }
-            lobbyCamera.SetActive(false);
+
+        playerHasDied = false;
+        lobbyCamera.SetActive(false);
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (!playerHasDied && hasSpawned)
+            lobbyCamera.SetActive(false);
+        else
+            lobbyCamera.SetActive(true);
+
     }
 
     void CheckPlayers()

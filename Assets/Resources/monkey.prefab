@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6517575056528858006}
   - component: {fileID: -4911617467858420113}
   - component: {fileID: -9081511711227982730}
+  - component: {fileID: -3004683948762361605}
   m_Layer: 0
   m_Name: monkey
   m_TagString: Player
@@ -177,8 +178,8 @@ MonoBehaviour:
   cam: {fileID: 2042324975713642091}
   movementSettings:
     ForwardSpeed: 8
-    BackwardSpeed: 4
-    StrafeSpeed: 4
+    BackwardSpeed: 8
+    StrafeSpeed: 8
     RunMultiplier: 2
     RunKey: 304
     JumpForce: 50
@@ -220,9 +221,9 @@ MonoBehaviour:
     XSensitivity: 2
     YSensitivity: 2
     clampVerticalRotation: 1
-    MinimumX: -45
+    MinimumX: -85
     MaximumX: 90
-    smooth: 1
+    smooth: 0
     smoothTime: 100
     lockCursor: 1
   advancedSettings:
@@ -471,6 +472,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3004683948762361605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042324975713444941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7da8989adf5e04fb7e1947e8500c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 2042324975723123119}
+  playerRigidbody: {fileID: 2042324975710177067}
+  isTesting: 0
 --- !u!1 &2042324975713444943
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +669,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0aacad1a0c0a65048992482ec3d1642b,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0aacad1a0c0a65048992482ec3d1642b,
         type: 3}
